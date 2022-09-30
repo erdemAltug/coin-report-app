@@ -69,14 +69,14 @@ export default {
     };
   },
   computed: {
-    ...mapState(["dialog", "allCoins", "myCoins", "searchCoin", "myPortfolio"]),
-  },
-
-  watch: {
-    myCoins() {
-      console.log(this.myCoins);
-      this.deleteCoins();
-    },
+    ...mapState([
+      "dialog",
+      "allCoins",
+      "myCoins",
+      "searchCoin",
+      "myPortfolio",
+      "searchUnit",
+    ]),
   },
 
   methods: {
@@ -87,6 +87,7 @@ export default {
       "setMyCoins",
       "setSelectedCoin",
       "setPortfolio",
+      "setCoinUnit",
     ]),
 
     deleteCoins(item) {
@@ -98,13 +99,14 @@ export default {
 
     update(item) {
       this.$set(item, item.unit, item.unit++);
-      console.log(item.unit);
+      this.setCoinUnit(item.unit);
+      console.log("item unit", this.searchUnit);
     },
 
     remove(item) {
       if (item.unit != 0) {
         this.$set(item, item.unit, item.unit--);
-        console.log(item.unit);
+        this.setCoinUnit(item.unit);
       }
     },
   },

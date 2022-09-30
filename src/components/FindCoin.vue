@@ -79,6 +79,7 @@ export default {
       "searchCoin",
       "addButtonCoins",
       "updateButtonCoins",
+      "searchUnit",
     ]),
   },
 
@@ -89,13 +90,11 @@ export default {
       ) {
         this.searchCoin.push(this.search);
         this.updateButton = true;
-        console.log("girdik");
       } else if (
         this.myCoins.find((element) => element.symbol != this.search.symbol)
       ) {
         this.searchCoin.push(this.search);
         this.addButton = true;
-        console.log("girdik");
       }
 
       if (this.search == "") {
@@ -107,7 +106,6 @@ export default {
     searchCoin() {
       if (this.searchCoin.length > 1) {
         this.setSelectedCoinEmpty();
-        console.log("seks", this.searchCoin);
       }
     },
   },
@@ -122,32 +120,12 @@ export default {
       "setAddButtonCoins",
       "setUpdateButtonCoins",
       "setSelectedCoinEmpty",
+      "setCoinUnit",
     ]),
 
     closeModal() {
       this.setModal(false);
     },
-
-    addUnit() {
-      this.unit++;
-    },
-
-    removeUnit() {
-      this.unit--;
-    },
-
-    // getCoinInfo() {
-    //   this.getAllCoin().then((response) => {
-    //     this.allCoins.push(response.data);
-    //     this.allCoins[0].forEach(function (element) {
-    //       element.unit = 0;
-    //     });
-    //     console.log("coins", this.allCoins);
-    //     this.myCoins.push(this.allCoins[0].splice(0, 5));
-    //     this.myCoins = this.myCoins[0];
-    //     console.log("my coins", this.myCoins);
-    //   });
-    // },
   },
 };
 </script>

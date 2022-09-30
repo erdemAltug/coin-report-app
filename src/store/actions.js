@@ -39,4 +39,8 @@ export default {
   setPortfolio({ commit }, item) {
     commit("setPortfolio", item);
   },
+
+  setCoinUnit({ commit }, value) {
+    commit("setCoinUnit", value);
+  },
 };

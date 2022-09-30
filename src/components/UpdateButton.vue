@@ -14,21 +14,15 @@
             class="mt-6"
             cols="2"
           >
-            {{ searchCoin[0].unit }}
+            {{ searchUnit }}
           </v-col>
           <v-col cols="3">
-            <v-btn
-              class="mt-5"
-              @click="update(searchCoin[0])"
-              small
-              dense
-              color="primary"
-            >
+            <v-btn class="mt-5" @click="update()" small dense color="primary">
               update
             </v-btn>
             <v-btn
               class="mt-5 ml-2"
-              @click="remove(searchCoin[0])"
+              @click="remove()"
               small
               dense
               color="error"
@@ -53,7 +47,6 @@ export default {
 
   watch: {
     searchCoin() {
-      console.log("update button search coin", this.searchCoin);
       this.myCoins.forEach((element) => {
         if (element.symbol === this.searchCoin[0].symbol) {
           element.unit = this.searchCoin[0].unit;
@@ -62,7 +55,6 @@ export default {
     },
 
     myCoins() {
-      console.log("mycoins trigger", this.myCoins);
       this.myCoins.forEach((element) => {
         if (element.symbol === this.searchCoin[0].symbol) {
           element.unit = this.searchCoin[0].unit;
@@ -79,6 +71,7 @@ export default {
       "searchCoin",
       "addButtonCoins",
       "updateButtonCoins",
+      "searchUnit",
     ]),
   },
 
@@ -91,11 +84,13 @@ export default {
       "setSelectedCoin",
       "setAddButtonCoins",
       "setUpdateButtonCoins",
+      "setCoinUnit",
     ]),
 
-    update(item) {
-      this.$set(item, item.unit, item.unit++);
-      console.log(item.unit);
+    update() {
+      let x = this.searchUnit;
+      this.setCoinUnit(this.searchUnit + 1);
+      console.log("x", x);
     },
 
     remove(item) {

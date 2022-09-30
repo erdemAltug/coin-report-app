@@ -6,7 +6,9 @@
           <v-btn @click="openModal" dense color="primary" class="ml-8 mt-8">
             {{ myCoins.length != 0 ? btnName : "Add Stock" }}
           </v-btn>
-          <v-btn dense color="primary" class="ml-8 mt-8"> Refresh </v-btn>
+          <v-btn @click="getCoinInfo" dense color="primary" class="ml-8 mt-8">
+            Refresh
+          </v-btn>
         </v-col>
       </v-row>
 
@@ -58,7 +60,6 @@ export default {
 
   watch: {
     myCoins() {
-      console.log("my Coins", this.myCoins);
       this.series = [];
       this.labels = [];
       this.myCoins.forEach((element) => {
@@ -101,9 +102,7 @@ export default {
         this.allCoins.forEach(function (element) {
           element.unit = 1;
         });
-        console.log("all coins", this.allCoins);
         this.setMyCoins(this.allCoins.splice(0, 3));
-        console.log("my coins", this.myCoins);
       });
     },
 

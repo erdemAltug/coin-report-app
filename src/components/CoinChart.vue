@@ -33,12 +33,6 @@ export default {
       required: true,
     },
   },
-
-  watch: {
-    labels() {
-      console.log("label", this.labels);
-    },
-  },
 };
 </script>
 

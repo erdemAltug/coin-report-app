@@ -1,5 +1,6 @@
 export default {
   dialog: false,
+  searchUnit: null,
   allCoins: [],
   myCoins: [],
   searchCoin: [],

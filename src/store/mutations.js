@@ -60,4 +60,8 @@ export default {
       state.myPortfolio.push(data[i]);
     }
   },
+
+  setCoinUnit(state, value) {
+    state.searchUnit = value;
+  },
 };
